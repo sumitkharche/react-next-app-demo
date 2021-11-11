@@ -1,11 +1,13 @@
 import axios from 'axios'
 import _ from 'lodash'
-import Footer from '../components/partials/footer'
-import Header from '../components/partials/header'
-import helpers from '../helpers'
-import config from '../config'
+import Footer from '../../components/partials/footer'
+import Header from '../../components/partials/header'
+import helpers from '../../helpers'
+import config from '../../config'
 import React from 'react';
-export default class extends React.Component {
+import { withRouter } from 'next/router';
+
+export default withRouter(class extends React.Component {
   static async getInitialProps({ query }) {
     const globals_query = `{
       getObjects(bucket_slug: "${config.bucket.slug}",
@@ -107,4 +109,4 @@ export default class extends React.Component {
       </div>
     )
   }
-}
+})

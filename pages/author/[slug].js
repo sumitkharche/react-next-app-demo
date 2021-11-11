@@ -1,11 +1,13 @@
 import axios from 'axios'
 import _ from 'lodash'
-import Footer from '../components/partials/footer'
-import Header from '../components/partials/header'
-import helpers from '../helpers'
-import config from '../config'
+import Footer from '../../components/partials/footer'
+import Header from '../../components/partials/header'
+import helpers from '../../helpers'
+import config from '../../config'
 import React from 'react';
-export default class extends React.Component {
+import { withRouter } from 'next/router';
+
+export default withRouter(class extends React.Component {
   static async getInitialProps({ query }) {
     const gql_query = `{
       getObjects(bucket_slug: "${config.bucket.slug}",
@@ -51,11 +53,11 @@ export default class extends React.Component {
                  <div className="card" data-href={`/${post.id}`} key={post.id}>
                   {
                     post.metadata.hero.imgix_url &&
-                    <a href={`/${post.id}`} className="blog-post-hero blog-post-hero--short" style={{ backgroundImage: `url(${post.metadata.hero.imgix_url})`}}></a>
+                    <a href={`/posts/${post.id}`} className="blog-post-hero blog-post-hero--short" style={{ backgroundImage: `url(${post.metadata.hero.imgix_url})`}}></a>
                   }
                   <div className="card-padding">
                     <h2 className="blog__title blog__title--small">
-                      <a href={`/${post.id}`}>{post.title}</a>
+                      <a href={`/posts/${post.id}`}>{post.title}</a>
                     </h2>
                     <div className="blog__author">
                       <a href={`/author/${post.metadata.author.slug}`}>
@@ -66,7 +68,7 @@ export default class extends React.Component {
                     </div>
                     <div className="blog__teaser droid" dangerouslySetInnerHTML={{__html: post.metadata.teaser}}></div>
                     <div className="blog__read-more">
-                      <a href={`/${post.id}`}>Read more...</a>
+                      <a href={`/posts/${post.id}`}>Read more...</a>
                     </div>
                   </div>
                 </div>  
@@ -78,4 +80,4 @@ export default class extends React.Component {
       </div>
     )
   }
-}
+})
