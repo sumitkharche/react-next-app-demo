@@ -3,13 +3,13 @@ import React from 'react';
 export default class extends React.Component {
   render() {
     return [
-      <Head key={1}>
-        <meta name="viewport" content="width=device-width"/>
-        <link rel="stylesheet" type="text/css" href="/static/style.css"/>
-        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>
-        <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet"/>
-        <title>{ this.props.cosmic.post ? this.props.cosmic.post.title + ' |' : '' } Simple React Blog</title>
-      </Head>,
+      // <Head key={1}>
+      //   <meta name="viewport" content="width=device-width"/>
+      //   <link rel="stylesheet" type="text/css" href="/static/style.css"/>
+      //   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>
+      //   <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet"/>
+      //   <title>{ this.props.cosmic.post ? this.props.cosmic.post.title + ' |' : '' } Simple React Blog</title>
+      // </Head>,
       <header className="header" key={2}>
         <h1 className="site-title">
           <a href="/">{ this.props.cosmic.global.header.metadata.site_title }</a>
